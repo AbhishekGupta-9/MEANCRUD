@@ -1,0 +1,91 @@
+<div class="custom-modal">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="head-title">{{ (mode === 'add')? 'Add': 'Edit' }} Employee</h3>
+            <a class="close" (click)="closeDialog()"><i class="fa fa-times" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="employee-modal">
+                <form [formGroup]="employeeForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>First Name</mat-label>
+                                <input matInput placeholder="First Name" formControlName="firstName">
+                                <div *ngIf="formControls.firstName.touched && formControls.firstName.invalid">
+                                    <small class="text-danger" *ngIf="formControls.firstName.errors.required">
+                                        First Name is required.
+                                    </small>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Last Name</mat-label>
+                                <input matInput placeholder="Last Name" formControlName="lastName">
+                                <div *ngIf="formControls.lastName.touched && formControls.lastName.invalid">
+                                    <small class="text-danger" *ngIf="formControls.lastName.errors.required">
+                                        Last Name is required.
+                                    </small>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="roe">
+                        <div class="col-md-6" *ngIf="mode !== 'edit'">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Email</mat-label>
+                                <input matInput placeholder="Email" formControlName="email">
+                                <div *ngIf="formControls.email.touched && formControls.email.invalid">
+                                    <small class="text-danger" *ngIf="formControls.email.errors.required">
+                                        Email is required.
+                                    </small>
+                                    <small class="text-danger" *ngIf="formControls.email.errors.email">
+                                        Email format is invalid.
+                                    </small>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Contact Number</mat-label>
+                                <input matInput placeholder="Contact Number" maxlength="10" formControlName="phoneNumber">
+                                <div *ngIf="formControls.phoneNumber.touched && formControls.phoneNumber.invalid">
+                                    <small class="text-danger" *ngIf="formControls.phoneNumber.errors.required">
+                                        Contact Number is required.
+                                    </small>
+                                    <small class="text-danger" *ngIf="formControls.phoneNumber.errors?.pattern">
+                                        Contact Number format is invalid.
+                                    </small>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Profile Picture</label>
+                                <input type="file" class="form-control" formControlName="profilePicture">
+                            </div>
+                            <div *ngIf="formControls.profilePicture.touched && formControls.profilePicture.invalid">
+                                <small class="text-danger" *ngIf="formControls.profilePicture.errors.required">
+                                    Profile Picture is required.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-flex-end">
+                        <div class="col-md-6">
+                            <div class="action-btn">
+                                <button mat-button color="primary" (click)="closeDialog()">Close</button>
+                                <button mat-button [disabled]="employeeForm.invalid" (click)="submitEmployeeForm()" color="primary" (click)="closeDialog()">
+                                    {{ mode === 'add' ? 'ADD': 'UPDATE' }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

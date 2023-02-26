@@ -1,0 +1,25 @@
+<div class="delete_nursh Home_modal ">
+    <div id="deleteModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                    <div class="cardBox">
+                        <p>Are you sure you want to <span *ngIf="modalData.mode !== 2">delete this</span> {{ modalData.message }}?</p>
+                    </div>
+                </div>
+                <div class="pay_submit_box">
+                    <div class="d-grid gap-2 d-md-flex justify-content-center mt-2">
+                        <button mat-button color="primary" class="me-md-2 btn btn-danger btn-rounded" shape="rounded-pill" (click)="closeDialog(false)">
+                            NO
+                        </button>
+                        <button mat-button color="primary"class="me-md-2 btn btn-success btn-rounded" shape="rounded-pill" (click)="closeDialog(true)">
+                            YES
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
