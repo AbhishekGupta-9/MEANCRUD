@@ -33,7 +33,6 @@ const storage2 = multer.diskStorage({
 });
 export const uploads = multer({ storage: storage2 }).any();
 
-// pets profilePic 
 var storage3 = multer.diskStorage({
   destination: function (req, res, cb) {
     cb(null, "./uploads/pets/petProfile");

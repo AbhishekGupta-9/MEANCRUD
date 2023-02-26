@@ -65,7 +65,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Profile Picture</label>
-                                <input type="file" class="form-control" formControlName="profilePicture">
+                                <input type="file" (change)="fileChange($event)" class="form-control" formControlName="profilePicture">
                             </div>
                             <div *ngIf="formControls.profilePicture.touched && formControls.profilePicture.invalid">
                                 <small class="text-danger" *ngIf="formControls.profilePicture.errors.required">
